@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">League of Legends</string>
     <string name="action_settings">Settings</string>
+
+    <!--El Spinner me lee y muestra esta lista-->
+    <string-array name="Servidores">
+        <item>EUW</item>
+        <item>BR</item>
+        <item>EUNE</item>
+        <item>JP</item>
+        <item>KR</item>
+        <item>LAN</item>
+        <item>LAS</item>
+        <item>OCE</item>
+        <item>RU</item>
+        <item>TR</item>
+
+    </string-array>
 </resources>
