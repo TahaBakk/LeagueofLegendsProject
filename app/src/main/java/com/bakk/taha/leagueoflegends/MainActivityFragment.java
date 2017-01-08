@@ -38,21 +38,6 @@ public class MainActivityFragment extends Fragment {
         String datoNombre = et1.getText().toString();//con esto capturamos el texto introducido
         String datoServidor = sp1.getItemAtPosition(sp1.getSelectedItemPosition()).toString();//capturamos el servidor seleccionado en el Spinner
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         return view;
     }
 }
