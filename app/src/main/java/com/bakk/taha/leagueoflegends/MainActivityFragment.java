@@ -1,9 +1,12 @@
 package com.bakk.taha.leagueoflegends;
 
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.json.JSONException;
+
+import java.io.IOException;
 
 
 public class MainActivityFragment extends Fragment {
@@ -24,6 +31,11 @@ public class MainActivityFragment extends Fragment {
     public EditText et1;
     public Spinner sp1;
 
+    @Override//Aqui le decimos que vamos a añadir items al "MENU"
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +53,7 @@ public class MainActivityFragment extends Fragment {
     }
 
 
-    @Override
+    @Override//la opciones del menu que ara cuando se le de a un item del menu
     public boolean onOptionsItemSelected(MenuItem item) {
 
             int id = item.getItemId();
@@ -53,7 +65,26 @@ public class MainActivityFragment extends Fragment {
             return super.onOptionsItemSelected(item);
     }
 
+    @Override//Que menu cargara (le marcamos el xml del menu)
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_lol_fragment, menu);
+
+    }
+    //Que ara, al darle al boton de refresh del menu
     private void refresh() {
+
+        InvocadorApi invocadorApi = new InvocadorApi();
+        String result = null;
+        try {
+
+            result = invocadorApi.getSummoner();
+            Log.d("DEBUG", result);
+
+        } catch (JSONException e) {e.printStackTrace();
+        } catch (IOException e) {e.printStackTrace();
+        }
+
 
     }
 

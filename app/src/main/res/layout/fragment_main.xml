@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/guideline"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="300dp"
+        tools:layout_editor_absoluteY="320dp"
         tools:layout_editor_absoluteX="0dp"
-        app:layout_constraintGuide_begin="300dp" />
+        app:layout_constraintGuide_begin="320dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -57,20 +57,20 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
-    <ImageView
+    <TextView
+        android:text="TextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:srcCompat="@android:drawable/btn_dialog"
-        android:id="@+id/imageView4"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/textViewProva"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        android:layout_marginBottom="8dp" />
 
 </android.support.constraint.ConstraintLayout>
