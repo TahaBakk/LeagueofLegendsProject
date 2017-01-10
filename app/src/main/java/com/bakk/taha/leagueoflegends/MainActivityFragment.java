@@ -2,7 +2,9 @@ package com.bakk.taha.leagueoflegends;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -13,18 +15,15 @@ import android.widget.TextView;
 
 public class MainActivityFragment extends Fragment {
 
-    String apiKeyLol = "RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
     /*private final static String[] datos = { "EUW", "BR", "EUNE", "JP", "KR", "LAN", "LAS",
             "OCE", "RU", "TR" };*/
 
     public MainActivityFragment() {
     }
 
-    private EditText et1;
-    private Spinner sp1;
+    public EditText et1;
+    public Spinner sp1;
 
-    private ImageButton masVida1;
-    private TextView textView1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +39,25 @@ public class MainActivityFragment extends Fragment {
 
         return view;
     }
-}
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+            int id = item.getItemId();
+
+            if (id == R.id.action_refresh) {
+                   refresh();
+                   return true;
+            }
+            return super.onOptionsItemSelected(item);
+    }
+
+    private void refresh() {
+
+    }
+
+
+
+}
 

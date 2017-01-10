@@ -9,8 +9,8 @@ public class Invocador {
     long id;
     String name;
     int profileIconId;
-    long revisionDate;
     long summonerLevel;
+    long revisionDate;
 
     public long getId() {return id;}
     public String getName() {return name;}
