@@ -15,9 +15,10 @@ public class InvocadorApi {
     //Donarli permisos a internet sino la aplicacion fallara al conectarse a internet(en el manifest)
     //https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/Stanjawi?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536
 
+
 //Esto lo usare mas adelante para filtrar por el nombre de invocador
-    //String servidor = "";
-    //String summoner = "";
+    public static String servidor = "";
+    public static String summoner = "";
     //String apiKeyLol = "RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
 
     private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/Stanjawi?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
