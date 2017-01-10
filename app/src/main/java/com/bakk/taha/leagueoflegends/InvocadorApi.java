@@ -44,8 +44,7 @@ public class InvocadorApi {
 
     private static Invocador processJson (String jsonResponse) throws JSONException {
 
-        JSONObject data = null;
-        data = new JSONObject(jsonResponse);
+        JSONObject data = new JSONObject(jsonResponse);
 
         Invocador invocador = new Invocador();
 
