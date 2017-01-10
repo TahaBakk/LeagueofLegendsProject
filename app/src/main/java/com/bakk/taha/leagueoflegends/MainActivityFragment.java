@@ -1,5 +1,6 @@
 package com.bakk.taha.leagueoflegends;
 
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -74,18 +75,26 @@ public class MainActivityFragment extends Fragment {
     //Que ara, al darle al boton de refresh del menu
     private void refresh() {
 
-        InvocadorApi invocadorApi = new InvocadorApi();
-        String result = null;
-        try {
+        RefreshDataTask task = new RefreshDataTask();
+        task.execute();
 
-            result = invocadorApi.getSummoner();
-            Log.d("DEBUG", result);
+    }
+    //hacemos que la api se ejecute en segundo plano
+    private class RefreshDataTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            InvocadorApi invocadorapi = new InvocadorApi();
+            String result = null;
+            try {
+                result = invocadorapi.getSummoner();
+                Log.d("DEBUG", result);
 
-        } catch (JSONException e) {e.printStackTrace();
-        } catch (IOException e) {e.printStackTrace();
+            } catch (JSONException e) {e.printStackTrace();
+            } catch (IOException e) {e.printStackTrace();
+            }
+
+            return null;
         }
-
-
     }
 
 

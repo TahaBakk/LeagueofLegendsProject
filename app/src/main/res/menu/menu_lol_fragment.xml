@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Refresh"
+    <item android:title="Item" />
+    <item
         android:id="@+id/action_refresh"
-        android:showAsAction="never" />
+        android:orderInCategory="102"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:visible="true"
+        android:title="refresh"
+        android:showAsAction="never|always"
+        android:checkable="false"
+        android:enabled="true" />
 </menu>
