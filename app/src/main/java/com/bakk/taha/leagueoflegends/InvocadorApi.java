@@ -23,7 +23,7 @@ public class InvocadorApi {
     private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/Stanjawi?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
 
 
-    String getSummoner() throws JSONException, IOException {
+    Invocador getSummoner() throws JSONException, IOException {
 
         Uri builtUri = Uri.parse(BASE_URL)
                 .buildUpon()
@@ -34,10 +34,10 @@ public class InvocadorApi {
 
     }
 
-    private String docall(String url) throws IOException {
+    private Invocador docall(String url) throws IOException, JSONException {
 
             String JsonResponse = HttpUtils.get(url);
-            return JsonResponse;
+            return processJson(JsonResponse);
 
     }
 

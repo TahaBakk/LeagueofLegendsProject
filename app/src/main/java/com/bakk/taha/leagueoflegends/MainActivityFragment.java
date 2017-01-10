@@ -80,18 +80,20 @@ public class MainActivityFragment extends Fragment {
 
     }
     //hacemos que la api se ejecute en segundo plano
-    private class RefreshDataTask extends AsyncTask<Void, Void, Void> {
+    private class RefreshDataTask extends AsyncTask<Void, Void, Invocador> {
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected Invocador doInBackground(Void... voids) {
             InvocadorApi invocadorapi = new InvocadorApi();
-            String result = null;
+            Invocador result = null;
             try {
                 result = invocadorapi.getSummoner();
-                Log.d("DEBUG", result);
+                Log.d("DEBUG", result.toString());
+
 
             } catch (JSONException e) {e.printStackTrace();
             } catch (IOException e) {e.printStackTrace();
             }
+
 
             return null;
         }
