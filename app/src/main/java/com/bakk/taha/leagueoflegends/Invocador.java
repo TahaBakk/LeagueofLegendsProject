@@ -6,11 +6,11 @@ package com.bakk.taha.leagueoflegends;
 
 public class Invocador {
 
-    long id;
-    String name;
-    int profileIconId;
-    long summonerLevel;
-    long revisionDate;
+    private long id;
+    private String name;
+    private int profileIconId;
+    private long summonerLevel;
+    private long revisionDate;
 
     public long getId() {return id;}
     public String getName() {return name;}

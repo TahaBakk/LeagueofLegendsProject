@@ -11,20 +11,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
-
-import org.json.JSONException;
-
-import java.io.IOException;
 
 
 public class MainActivityFragment extends Fragment {
 
-    /*private final static String[] datos = { "EUW", "BR", "EUNE", "JP", "KR", "LAN", "LAS",
-            "OCE", "RU", "TR" };*/
+    private Adapter adapter;
 
     public MainActivityFragment() {
     }
@@ -82,23 +76,25 @@ public class MainActivityFragment extends Fragment {
         task.execute();
 
     }
+    
+    
+    
     //hacemos que la api se ejecute en segundo plano
     private class RefreshDataTask extends AsyncTask<Void, Void, Invocador> {
         @Override
         protected Invocador doInBackground(Void... voids) {
             InvocadorApi invocadorapi = new InvocadorApi();
-            Invocador result = null;
-            try {
-                result = invocadorapi.getSummoner();
-                Log.d("DEBUG", result.toString());
 
+            Invocador result = invocadorapi.getSummoner();
+            Log.d("DEBUG=****>", result != null ? result.toString() : null);
+            //Log.d("DEBUGID====>", ((String) result.getId()));
+            //)
+            return result;
+        }
 
-            } catch (JSONException e) {e.printStackTrace();
-            } catch (IOException e) {e.printStackTrace();
-            }
-
-
-            return null;
+        @Override
+        protected void onPostExecute(Invocador invocador) {
+            super.onPostExecute(invocador);
         }
     }
 
