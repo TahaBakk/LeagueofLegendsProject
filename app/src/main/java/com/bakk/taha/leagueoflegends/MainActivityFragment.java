@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class MainActivityFragment extends Fragment {
@@ -50,7 +51,6 @@ public class MainActivityFragment extends Fragment {
         return view;
     }
 
-
     @Override//la opciones del menu que ara cuando se le de a un item del menu
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -76,6 +76,8 @@ public class MainActivityFragment extends Fragment {
         task.execute();
 
         //crear textView para pasar la info del summoner
+
+
 
 
 
