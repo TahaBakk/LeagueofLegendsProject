@@ -3,6 +3,7 @@ package com.bakk.taha.leagueoflegends;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -45,19 +46,28 @@ class InvocadorApi {
             return processJson(JsonResponse);
 
     }
-    //desactivado
     //para pasar el json a strings y guardarlas en variable
     private static Invocador processJson (String jsonResponse) throws JSONException {
 
+        /*JSONArray jsonMatchList = data.getJSONArray("Matches");
+
+            for (int i = 0; i < jsonMatchList.length(); i++) {
+
+                JSONObject dato = jsonMatchList.getJSONObject(i);*/
+
         JSONObject data = new JSONObject(jsonResponse);
+        //data = data.getJSONObject("STanjawi");//le decimos que de la ruta coja lo que contiene lo que alla dentro de STanjawi(el summoner)
+
+        //JSONArray jsonSummoner = data.getJSONArray("stanjawi");
+        JSONObject dato = data.getJSONObject("stanjawi");
 
         Invocador invocador = new Invocador();
-        
-        invocador.setId(data.getLong("id"));
-        invocador.setName(data.getString("name"));
-        invocador.setProfileIconId(data.getInt("profileIconId"));
-        invocador.setSummonerLevel(data.getLong("summonerLevel"));
-        invocador.setRevisionDate(data.getLong("revisionDate"));
+
+        invocador.setId(dato.getLong("id"));
+        invocador.setName(dato.getString("name"));
+        invocador.setProfileIconId(dato.getInt("profileIconId"));
+        invocador.setSummonerLevel(dato.getLong("summonerLevel"));
+        invocador.setRevisionDate(dato.getLong("revisionDate"));
 
     return invocador;
     }

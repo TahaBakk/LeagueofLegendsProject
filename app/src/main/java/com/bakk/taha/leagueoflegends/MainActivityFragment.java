@@ -92,10 +92,10 @@ public class MainActivityFragment extends Fragment {
             return result;
         }
 
-        @Override
+       /* @Override
         protected void onPostExecute(Invocador invocador) {
             super.onPostExecute(invocador);
-        }
+        }*/
     }
 
 
