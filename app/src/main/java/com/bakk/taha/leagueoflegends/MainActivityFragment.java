@@ -75,6 +75,10 @@ public class MainActivityFragment extends Fragment {
         RefreshDataTask task = new RefreshDataTask();
         task.execute();
 
+        //crear textView para pasar la info del summoner
+
+
+
     }
     
     
