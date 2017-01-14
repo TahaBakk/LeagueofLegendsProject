@@ -19,7 +19,7 @@ public class MatchListApi {
 
     private static final int PAGES = 10;
 
-    static ArrayList<MatchList> getCartes() {
+    ArrayList<MatchList> getHistorial() {
 
         Uri builtUri = Uri.parse(BASE_URL)
                 .buildUpon()
@@ -59,7 +59,7 @@ public class MatchListApi {
             JSONObject data = null;
             data = new JSONObject(jsonResponse);
 
-            JSONArray jsonMatchList = data.getJSONArray("Matches");
+            JSONArray jsonMatchList = data.getJSONArray("matches");
 
             for (int i = 0; i < jsonMatchList.length(); i++) {
 
