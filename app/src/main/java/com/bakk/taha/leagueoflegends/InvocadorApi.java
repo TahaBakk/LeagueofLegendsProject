@@ -31,7 +31,6 @@ class InvocadorApi {
                 .buildUpon()
                 .build();
         String url = builtUri.toString();
-        System.out.println("BASE_____URL========================"+BASE_URL);
         try {
             return docall(url);
         } catch (IOException e) {e.printStackTrace();

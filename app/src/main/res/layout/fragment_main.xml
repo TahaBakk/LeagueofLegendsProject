@@ -21,7 +21,8 @@
         android:cursorVisible="false"
         android:layout_marginStart="32dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="32dp" />
+        android:layout_marginLeft="32dp"
+        android:text="STanjawi" />
 
     <Spinner
         android:entries="@array/Servidores"
@@ -56,49 +57,5 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editText1" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewName"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewId"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName"
-        app:layout_constraintRight_toRightOf="@+id/textViewName"
-        app:layout_constraintLeft_toLeftOf="@+id/textViewName" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewsummonerLevel"
-        app:layout_constraintLeft_toLeftOf="@+id/textViewId"
-        app:layout_constraintRight_toRightOf="@+id/textViewId"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewId" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewrevisionDate"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewsummonerLevel"
-        app:layout_constraintRight_toRightOf="@+id/textViewsummonerLevel"
-        app:layout_constraintLeft_toLeftOf="@+id/textViewsummonerLevel" />
 
 </android.support.constraint.ConstraintLayout>

@@ -23,6 +23,10 @@
         <activity
             android:name=".MatchListActivity"
             android:label="@string/title_activity_match_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MatchDetailActivity"
+            android:label="@string/title_activity_match_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

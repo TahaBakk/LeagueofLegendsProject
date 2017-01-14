@@ -40,10 +40,12 @@ public class MatchListAdapter extends ArrayAdapter<MatchList> {
             TextView match = (TextView) convertView.findViewById(R.id.rowMatchList);
             TextView queue = (TextView) convertView.findViewById(R.id.queuMatch);
             TextView lane = (TextView) convertView.findViewById(R.id.posicion);
+            //ImageView ivPosterImage = (ImageView) convertView.findViewById(R.id.ivPosterImage);
 
             // Fiquem les dades dels objectes (provinents del JSON) en el layout
             queue.setText(matchList.getQueue());
             lane.setText(matchList.getLane());
+            //Glide.with(getContext()).load(cartas.getImageUrl()).into(ivPosterImage);//para la imagen
 
             // Retornem la View replena per a mostrarla
             return convertView;

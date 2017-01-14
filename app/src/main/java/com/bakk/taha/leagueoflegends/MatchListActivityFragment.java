@@ -24,8 +24,8 @@ public class MatchListActivityFragment extends Fragment {
 
     //private ArrayList<MatchList> items;
 
-    private ArrayList<String> items;
-    private ArrayAdapter<String> adapter;
+    private ArrayList<MatchList> items;
+    private MatchListAdapter adapter;
 
 
 
@@ -47,10 +47,9 @@ public class MatchListActivityFragment extends Fragment {
         ListView lvHistorial = (ListView) view.findViewById(R.id.lvHistorial);
 
         items = new ArrayList<>();
-        adapter = new ArrayAdapter<>(
+        adapter = new MatchListAdapter(
                 getContext(),
                 R.layout.match_list_row,
-                R.id.rowMatchList,
                 items
         );
         lvHistorial.setAdapter(adapter);
@@ -99,8 +98,13 @@ public class MatchListActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(ArrayList<MatchList> listado) {
             adapter.clear();
-            for (MatchList list : listado) {
+            /*for (MatchList list : listado) {
                 adapter.add(list.getLane());
+            }*/
+
+            for(int i = 0; i < listado.size(); i++)
+            {
+                adapter.add(listado.get(i));
             }
 
         }

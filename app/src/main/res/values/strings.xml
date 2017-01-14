@@ -17,4 +17,5 @@
 
     </string-array>
     <string name="title_activity_match_list">MatchListActivity</string>
+    <string name="title_activity_match_detail">MatchDetailActivity</string>
 </resources>

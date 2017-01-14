@@ -13,8 +13,11 @@ import java.util.ArrayList;
  */
 
 public class MatchListApi {
+    //static Invocador invocador = new Invocador();
+    //public static Long champCodiId = invocador.getSummonerId();
+    //static String servidor = MainActivityFragment.nombreServidor;
 
-    String champCodiId = "50809995";
+    //private final static String BASE_URL = "https://"+servidor+".api.pvp.net/api/lol/"+servidor+"/v2.2/matchlist/by-summoner/"+champCodiId+"?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
     private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/matchlist/by-summoner/50809995?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
 
     private static final int PAGES = 10;
@@ -24,6 +27,7 @@ public class MatchListApi {
         Uri builtUri = Uri.parse(BASE_URL)
                 .buildUpon()
                 .build();
+        System.out.println("Taha URLLLLLLLLLL"+BASE_URL);
 
         String url = builtUri.toString();
         return doCall(url);
