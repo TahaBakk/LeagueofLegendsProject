@@ -11,20 +11,35 @@
         android:layout_width="336dp"
         android:layout_height="wrap_content"
         android:id="@+id/rowMatchList"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="24dp" />
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintHorizontal_bias="0.56" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/queuMatch"
+        app:layout_constraintLeft_toLeftOf="@+id/rowMatchList"
+        app:layout_constraintRight_toRightOf="@+id/rowMatchList"
+        app:layout_constraintTop_toBottomOf="@+id/rowMatchList"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp"
+        android:id="@+id/posicion"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/rowMatchList" />
+        app:layout_constraintTop_toBottomOf="@+id/queuMatch"
+        app:layout_constraintRight_toRightOf="@+id/queuMatch"
+        app:layout_constraintLeft_toLeftOf="@+id/queuMatch" />
+
 </android.support.constraint.ConstraintLayout>
