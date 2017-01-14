@@ -16,4 +16,5 @@
         <item>TR</item>
 
     </string-array>
+    <string name="title_activity_match_list">MatchListActivity</string>
 </resources>
