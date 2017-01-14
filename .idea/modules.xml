@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LeagueofLegends.iml" filepath="$PROJECT_DIR$/LeagueofLegends.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LeagueofLegendsProject.iml" filepath="$PROJECT_DIR$/LeagueofLegendsProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -12,20 +12,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 
 public class MainActivityFragment extends Fragment {
-
-    private Adapter adapter;
-
+    
     public MainActivityFragment() {
     }
 
     public EditText et1;
     public Spinner sp1;
+    public ImageButton buttonBusqueda;
+    static String nombreSummoner;
+    static String nombreServidor;
 
     @Override//Aqui le decimos que vamos a añadir items al "MENU"
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,15 +41,30 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-
         et1 = (EditText) view.findViewById(R.id.editText1);
         sp1 = (Spinner) view.findViewById(R.id.lista1);
+        buttonBusqueda= (ImageButton) view.findViewById(R.id.busqueda);
+        buttonBusqueda.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
 
-        String datoNombre = et1.getText().toString();//con esto capturamos el texto introducido
-        String datoServidor = sp1.getItemAtPosition(sp1.getSelectedItemPosition()).toString();//capturamos el servidor seleccionado en el Spinner
+                String datoNombre = et1.getText().toString();//con esto capturamos el texto introducido
+                String datoServidor = sp1.getItemAtPosition(sp1.getSelectedItemPosition()).toString();//capturamos el servidor seleccionado en el Spinner
 
-        InvocadorApi.servidor=datoServidor;//le pasamos el dato para el api
-        InvocadorApi.summoner=datoNombre;//le pasamos el dato para el api
+                nombreServidor = datoServidor;
+                nombreSummoner = datoNombre;
+
+
+                //InvocadorApi.servidor=datoServidor;//le pasamos el dato para el api
+                //InvocadorApi.summoner=datoNombre;//le pasamos el dato para el api
+
+                Log.d("NOMBRESUMMONER=****>", datoNombre.toString());
+                Log.d("SERVER=****>", datoServidor.toString());
+
+                RefreshDataTask task = new RefreshDataTask();
+                task.execute();
+
+            }
+        });
 
         return view;
     }
@@ -75,12 +93,6 @@ public class MainActivityFragment extends Fragment {
         RefreshDataTask task = new RefreshDataTask();
         task.execute();
 
-        //crear textView para pasar la info del summoner
-
-
-
-
-
     }
     
     
@@ -93,15 +105,9 @@ public class MainActivityFragment extends Fragment {
 
             Invocador result = invocadorapi.getSummoner();
             Log.d("DEBUG=****>", result != null ? result.toString() : null);
-            //Log.d("DEBUGID====>", ((String) result.getId()));
-            //)
+
             return result;
         }
-
-       /* @Override
-        protected void onPostExecute(Invocador invocador) {
-            super.onPostExecute(invocador);
-        }*/
     }
 
 

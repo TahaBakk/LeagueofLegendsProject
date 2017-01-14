@@ -6,20 +6,20 @@ package com.bakk.taha.leagueoflegends;
 
 public class Invocador {
 
-    private long id;
-    private String name;
+    private long summonerId;
+    private String summonerName;
     private int profileIconId;
     private long summonerLevel;
     private long revisionDate;
 
-    public long getId() {return id;}
-    public String getName() {return name;}
+    public long getSummonerId() {return summonerId;}
+    public String getSummonerName() {return summonerName;}
     public int getProfileIconId() {return profileIconId;}
     public long getRevisionDate() {return revisionDate;}
     public long getSummonerLevel() {return summonerLevel;}
 
-    public void setId(long id) {this.id = id;}
-    public void setName(String name) {this.name = name;}
+    public void setSummonerId(long summonerId) {this.summonerId = summonerId;}
+    public void setSummonerName(String summonerName) {this.summonerName = summonerName;}
     public void setProfileIconId(int profileIconId) {this.profileIconId = profileIconId;}
     public void setRevisionDate(long revisionDate) {this.revisionDate = revisionDate;}
     public void setSummonerLevel(long summonerLevel) {this.summonerLevel = summonerLevel;}
@@ -27,11 +27,11 @@ public class Invocador {
     @Override
     public String toString() {
         return "Invocador{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "summonerId=" + summonerId +
+                ", summonerName='" + summonerName + '\'' +
                 ", profileIconId=" + profileIconId +
-                ", revisionDate=" + revisionDate +
                 ", summonerLevel=" + summonerLevel +
+                ", revisionDate=" + revisionDate +
                 '}';
     }
 }

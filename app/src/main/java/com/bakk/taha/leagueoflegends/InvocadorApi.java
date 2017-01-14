@@ -18,11 +18,11 @@ class InvocadorApi {
     //https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/Stanjawi?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536
 
 
-    static String servidor = "";
-    static String summoner = "";
-    //static String apiKeyLol = "RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
-    //private final static String BASE_URL = "https://"+servidor+".api.pvp.net/api/lol/"+servidor+"/v1.4/summoner/by-name/"+summoner+"?api_key="+apiKeyLol;
-    private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/Stanjawi?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
+    static String servidor = MainActivityFragment.nombreServidor;
+    static String summoner = MainActivityFragment.nombreSummoner ;
+    static String apiKeyLol = "RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
+    private final static String BASE_URL = "https://"+servidor+".api.pvp.net/api/lol/"+servidor+"/v1.4/summoner/by-name/"+summoner+"?api_key="+apiKeyLol;
+    //private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/Stanjawi?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
 
 
     Invocador getSummoner(){
@@ -31,7 +31,7 @@ class InvocadorApi {
                 .buildUpon()
                 .build();
         String url = builtUri.toString();
-
+        System.out.println("BASE_____URL========================"+BASE_URL);
         try {
             return docall(url);
         } catch (IOException e) {e.printStackTrace();
@@ -52,12 +52,13 @@ class InvocadorApi {
         JSONObject data = new JSONObject(jsonResponse);
         //data = data.getJSONObject("STanjawi");//le decimos que de la ruta coja lo que contiene lo que alla dentro de STanjawi(el summoner)
 
-        JSONObject dato = data.getJSONObject("stanjawi");
+        JSONObject dato = data.getJSONObject(summoner.toLowerCase());
+        //JSONObject dato = data.getJSONObject("stanjawi");
 
         Invocador invocador = new Invocador();
 
-        invocador.setId(dato.getLong("id"));
-        invocador.setName(dato.getString("name"));
+        invocador.setSummonerId(dato.getLong("id"));
+        invocador.setSummonerName(dato.getString("name"));
         invocador.setProfileIconId(dato.getInt("profileIconId"));
         invocador.setSummonerLevel(dato.getLong("summonerLevel"));
         invocador.setRevisionDate(dato.getLong("revisionDate"));
