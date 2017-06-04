@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class MatchListApi {
 
     String champCodiId = "50809995";
+
     private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/matchlist/by-summoner/50809995?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
 
-    private static final int PAGES = 10;
 
-    static ArrayList<MatchList> getCartes() {
+    static ArrayList<MatchList> getMatch() {
 
         Uri builtUri = Uri.parse(BASE_URL)
                 .buildUpon()
@@ -34,7 +34,6 @@ public class MatchListApi {
         String JsonResponse = null;
         ArrayList<MatchList> matchList = new ArrayList<>();
 
-        for (int i = 0; i < PAGES; i++) {
             try {
                 JsonResponse = HttpUtils.get(url);
 
@@ -47,7 +46,7 @@ public class MatchListApi {
                 e.printStackTrace();
             }
 
-        }
+
         return null;
 
     }

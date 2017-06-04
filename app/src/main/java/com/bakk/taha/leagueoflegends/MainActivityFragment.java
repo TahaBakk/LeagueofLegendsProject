@@ -1,5 +1,6 @@
 package com.bakk.taha.leagueoflegends;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -62,6 +63,10 @@ public class MainActivityFragment extends Fragment {
 
                 RefreshDataTask task = new RefreshDataTask();
                 task.execute();
+
+                Intent intent = new Intent(getContext(), MatchListActivity.class);
+                //intent.putExtra("cartas", cartas);
+                startActivity(intent);
 
             }
         });
