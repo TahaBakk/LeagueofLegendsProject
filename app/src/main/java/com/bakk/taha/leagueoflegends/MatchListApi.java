@@ -45,10 +45,7 @@ public class MatchListApi {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
         return null;
-
     }
 
     private static ArrayList<MatchList> processJson(String jsonResponse) {
@@ -57,8 +54,7 @@ public class MatchListApi {
         try {
             JSONObject data = null;
             data = new JSONObject(jsonResponse);
-
-            JSONArray jsonMatchList = data.getJSONArray("Matches");
+            JSONArray jsonMatchList = data.getJSONArray("matches");
 
             for (int i = 0; i < jsonMatchList.length(); i++) {
 
