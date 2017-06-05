@@ -24,6 +24,10 @@
             android:name=".MatchListActivity"
             android:label="@string/title_activity_match_list"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MatchlisActivity"
+            android:label="@string/title_activity_matchlis"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
