@@ -17,7 +17,7 @@ public class MatchListApi {
     //String champCodiId = "50809995";
     static Invocador inv = new Invocador();
     private final static String champID = String.valueOf(inv.getSummonerId());
-    private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/matchlist/by-summoner/"+champID+"?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";//50809995
+    private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/matchlist/by-summoner/" + champID + "?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";//50809995
 
 
     static ArrayList<MatchList> getMatch() {
@@ -34,17 +34,17 @@ public class MatchListApi {
         String JsonResponse = null;
         ArrayList<MatchList> matchList = new ArrayList<>();
 
-            try {
-                JsonResponse = HttpUtils.get(url);
+        try {
+            JsonResponse = HttpUtils.get(url);
 
-                ArrayList<MatchList> list = processJson(JsonResponse);
-                matchList.addAll(list);
+            ArrayList<MatchList> list = processJson(JsonResponse);
+            matchList.addAll(list);
 
-                return matchList;
+            return matchList;
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -71,35 +71,58 @@ public class MatchListApi {
                 matchList.setRole(dato.getString("role"));
                 matchList.setSeason(dato.getString("season"));
                 matchList.setTimestamp(dato.getLong("timestamp"));
-
-                String API_MATCH_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/match/"+String.valueOf(dato.getLong("matchId"))+"?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
-                //matchMode,matchDuration, queueType, mapId,season,matchVersion,
-                //"participants"--"stats"--,"winner","champLevel","kills","doubleKills","tripleKills", "quadraKills","pentaKills","deaths","assists", "goldEarned"
-
-                Uri builtUri = Uri.parse(API_MATCH_URL)
-                        .buildUpon()
-                        .build();
-                String urlMatch = builtUri.toString();
-                String JsonResponse = HttpUtils.get(urlMatch);
-                //processJson(JsonResponse);
-                JSONObject data2 = new JSONObject(JsonResponse);
-                //System.out.println("DATAAAAAAAA"+data2.getString("matchMode"));
-
-                //---------------------------------
-
+                System.out.println("FUCKKKK" + matchList.getMatchId());
                 matchLists.add(matchList);
 
+
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return matchLists;
+    }
+
+
+
+    static void getmatchData()  {
+        String idMatch =  String.valueOf("3204691748");
+        //String API_MATCH_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/match/" +idMatch + "?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
+        String API_MATCH_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/match/3204691748?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
+
+        Uri builtUri = Uri.parse(API_MATCH_URL)
+                .buildUpon()
+                .build();
+        String urlMatch = builtUri.toString();
+
+        try {
+
+            String JsonResponse2 = HttpUtils.get(urlMatch);
+            processJson(JsonResponse2);
+
+            JSONObject data2 = new JSONObject(JsonResponse2);
+
+
+            Match match = new Match();
+            //matchMode,matchDuration, queueType, mapId,season,matchVersion,
+            //"participants"--"stats"--,"winner","champLevel","kills","doubleKills","tripleKills", "quadraKills","pentaKills","deaths","assists", "goldEarned"
+            match.setMatchMode(data2.getString("matchMode"));
+            match.setMatchDuration(data2.getLong("matchDuration"));
+            match.setQueueType(data2.getString("queueType"));
+            match.setSeason(data2.getString("season"));
+            match.setMatchVersion(data2.getString("matchVersion"));
+
+            System.out.println("DATAAAAAAAA" +  match.getMatchMode());
+            System.out.println("DATAAAAAAAA2" + match.getMatchDuration());
+            System.out.println("DATAAAAAAAA3" + match.getQueueType());
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return matchLists;
+
     }
-
-
-
 
 }

@@ -18,4 +18,5 @@
     </string-array>
     <string name="title_activity_match_list">MatchListActivity</string>
     <string name="title_activity_matchlis">MatchlisActivity</string>
+    <string name="title_activity_match">matchActivity</string>
 </resources>

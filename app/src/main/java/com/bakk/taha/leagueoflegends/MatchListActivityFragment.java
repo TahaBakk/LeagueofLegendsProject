@@ -1,6 +1,8 @@
 package com.bakk.taha.leagueoflegends;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -45,6 +48,14 @@ public class MatchListActivityFragment extends Fragment {
                 items
         );
         lvHistorial.setAdapter(adapter);
+
+        lvHistorial.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent details = new Intent(getContext(), matchActivity.class);
+                details.putExtra("match", items.get(position));
+                startActivity(details);
+            }
+        });
 
         return view;
     }
