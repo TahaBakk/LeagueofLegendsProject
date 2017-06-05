@@ -40,7 +40,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_match_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         et1 = (EditText) view.findViewById(R.id.editText1);
         sp1 = (Spinner) view.findViewById(R.id.lista1);

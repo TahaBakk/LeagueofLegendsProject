@@ -14,13 +14,13 @@ import java.util.ArrayList;
 
 public class MatchListApi {
 
-    String champCodiId = "50809995";
-
-    private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/matchlist/by-summoner/50809995?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
+    //String champCodiId = "50809995";
+    static Invocador inv = new Invocador();
+    private final static String champID = String.valueOf(inv.getSummonerId());
+    private final static String BASE_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/matchlist/by-summoner/"+champID+"?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";//50809995
 
 
     static ArrayList<MatchList> getMatch() {
-
         Uri builtUri = Uri.parse(BASE_URL)
                 .buildUpon()
                 .build();
@@ -72,14 +72,34 @@ public class MatchListApi {
                 matchList.setSeason(dato.getString("season"));
                 matchList.setTimestamp(dato.getLong("timestamp"));
 
+                String API_MATCH_URL = "https://euw.api.pvp.net/api/lol/euw/v2.2/match/"+String.valueOf(dato.getLong("matchId"))+"?api_key=RGAPI-4f73293a-8462-446f-b61b-38f15c0ec536";
+                //matchMode,matchDuration, queueType, mapId,season,matchVersion,
+                //"participants"--"stats"--,"winner","champLevel","kills","doubleKills","tripleKills", "quadraKills","pentaKills","deaths","assists", "goldEarned"
+
+                Uri builtUri = Uri.parse(API_MATCH_URL)
+                        .buildUpon()
+                        .build();
+                String urlMatch = builtUri.toString();
+                String JsonResponse = HttpUtils.get(urlMatch);
+                //processJson(JsonResponse);
+                JSONObject data2 = new JSONObject(JsonResponse);
+                //System.out.println("DATAAAAAAAA"+data2.getString("matchMode"));
+
+                //---------------------------------
+
                 matchLists.add(matchList);
 
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return matchLists;
     }
+
+
+
 
 }

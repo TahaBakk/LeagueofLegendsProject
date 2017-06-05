@@ -6,7 +6,7 @@ package com.bakk.taha.leagueoflegends;
 
 public class Invocador {
 
-    private long summonerId;
+    private static long summonerId;
     private String summonerName;
     private int profileIconId;
     private long summonerLevel;
